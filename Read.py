@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 from time import sleep
 
+#NOte that the MFRC522 requires Board numbering thus all components use Board as opposed to BMC Numbering
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 GPIO.cleanup()
