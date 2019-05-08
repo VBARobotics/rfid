@@ -8,7 +8,12 @@ GPIO.setwarnings(False)
 GPIO.cleanup()
 
 redled = 7
-greenled = 8
+greenled = 18
+motoropen = 11
+motorclose = 8
+
+GPIO.setup(motoropen,GPIO.OUT,initial=GPIO.LOW)
+GPIO.setup(motorclose,GPIO.OUT,initial=GPIO.LOW)
 
 GPIO.setup(redled,GPIO.OUT,initial=GPIO.LOW)
 GPIO.setup(greenled,GPIO.OUT,initial=GPIO.LOW)
@@ -21,10 +26,13 @@ while True:
     print("Text: "+ text)
     if id==370554718609:
         print("This is the correct Card")
-#        GPIO.output(greenled,GPIO.HIGH)
+        GPIO.output(greenled,GPIO.HIGH)
+        GPIO.output(motoropen,GPIO.HIGH)
+        sleep(4)
+        GPIO.output(motoropen,GPIO.LOW)
     else:
         print("Authorization Denied")
-#        GPIO.output(redled,GPIO.HIGH)
+        GPIO.output(redled,GPIO.HIGH)
 
     sleep(3)
     GPIO.output(greenled,GPIO.LOW)
