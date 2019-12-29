@@ -29,4 +29,3 @@ while True:
     sleep(3)
     GPIO.output(dooropen,GPIO.LOW)
     GPIO.output(redled,GPIO.LOW)
-+
